@@ -33,7 +33,8 @@ function App() {
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>Hacker News Top Stories</h1>
+      <h1>Hacker News</h1>
+      <h2>Top Stories</h2>
       {loading && <p>Loading...</p>}
       {!loading && stories.length === 0 && <p>No stories found.</p>}
       <ul>
