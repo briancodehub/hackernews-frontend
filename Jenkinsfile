@@ -3,6 +3,7 @@ pipeline {
 
   environment {
     CI = 'true'
+    PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
   }
 
   stages {
@@ -11,6 +12,16 @@ pipeline {
         git url: 'https://github.com/briancodehub/hackernews-frontend.git', branch: 'main'
       }
     }
+
+    stage('Debug PATH') {
+      steps {
+        sh 'echo $PATH'
+        sh 'which npm || true'
+        sh 'node -v || true'
+        sh 'npm -v || true'
+      }
+    }
+
 
     stage('Install Dependencies') {
       steps {
