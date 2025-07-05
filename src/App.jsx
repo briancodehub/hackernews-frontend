@@ -1,54 +1,52 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const HN_API_URL = 'https://hacker-news.firebaseio.com/v0';
-
 function App() {
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchTopStories() {
+    const fetchStories = async () => {
       try {
+        setLoading(true);
         // Get top story IDs
-        const { data: ids } = await axios.get(`${HN_API_URL}/topstories.json`);
-        const top10 = ids.slice(0, 10);
+        const idsResponse = await axios.get('https://hacker-news.firebaseio.com/v0/topstories.json');
+        const topIds = idsResponse.data.slice(0, 10); // limit to 10 stories
 
-        // Get details for each story
-        const storyPromises = top10.map(id =>
-          axios.get(`${HN_API_URL}/item/${id}.json`)
+        // Fetch details for each
+        const storyPromises = topIds.map(id =>
+          axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
         );
+        const storyResponses = await Promise.all(storyPromises);
+        const storiesData = storyResponses.map(res => res.data);
 
-        const results = await Promise.all(storyPromises);
-        setStories(results.map(res => res.data));
+        setStories(storiesData);
       } catch (error) {
         console.error('Error fetching stories:', error);
       } finally {
         setLoading(false);
       }
-    }
+    };
 
-    fetchTopStories();
+    fetchStories();
   }, []);
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+    <div>
       <h1>Hacker News</h1>
-      <h2>Top Stories</h2>
-      {loading && <p>Loading...</p>}
-      {!loading && stories.length === 0 && <p>No stories found.</p>}
-      <ul>
-        {stories.map(story => (
-          <li key={story.id} style={{ marginBottom: '1rem' }}>
-            <a href={story.url} target="_blank" rel="noopener noreferrer">
-              {story.title}
-            </a>
-            <div style={{ fontSize: '0.9rem', color: '#555' }}>
-              By {story.by} | Score: {story.score}
-            </div>
-          </li>
-        ))}
-      </ul>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {stories.map(story => (
+            <li key={story.id}>
+              <a href={story.url} target="_blank" rel="noopener noreferrer">
+                {story.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
