@@ -1,0 +1,46 @@
+# Page snapshot
+
+```yaml
+- heading "Hacker News" [level=1]
+- list:
+  - listitem:
+    - link "Apple vs the Law":
+      - /url: https://formularsumo.co.uk/blog/2025/apple-vs-the-law/
+    - text: by tempodox | 7/10/2025, 11:49:12 PM
+  - listitem:
+    - 'link "OpenFront: Realtime Risk-like multiplayer game in the browser"':
+      - /url: https://openfront.io/
+    - text: by thombles | 7/10/2025, 11:27:19 PM
+  - listitem:
+    - 'link "Show HN: Pangolin – Open source alternative to Cloudflare Tunnels"':
+      - /url: https://github.com/fosrl/pangolin
+    - text: by miloschwartz | 7/10/2025, 2:50:43 PM
+  - listitem:
+    - link "Postgres LISTEN/NOTIFY does not scale":
+      - /url: https://www.recall.ai/blog/postgres-listen-notify-does-not-scale
+    - text: by davidgu | 7/7/2025, 7:05:06 AM
+  - listitem:
+    - 'link "Batch Mode in the Gemini API: Process More for Less"':
+      - /url: https://developers.googleblog.com/en/scale-your-ai-workloads-batch-mode-gemini-api/
+    - text: by xnx | 7/7/2025, 9:30:18 AM
+  - listitem:
+    - 'link "The ChompSaw: A Benchtop Power Tool That''s Safe for Kids to Use"':
+      - /url: https://www.core77.com/posts/137602/The-ChompSaw-A-Benchtop-Power-Tool-Thats-Safe-for-Kids-to-Use
+    - text: by surprisetalk | 7/7/2025, 6:43:22 AM
+  - listitem:
+    - link "LLM Inference Handbook":
+      - /url: https://bentoml.com/llm/
+    - text: by djhu9 | 7/10/2025, 7:40:32 PM
+  - listitem:
+    - link "What is Realtalk’s relationship to AI? (2024)":
+      - /url: https://dynamicland.org/2024/FAQ/#What_is_Realtalks_relationship_to_AI
+    - text: by prathyvsh | 7/10/2025, 8:25:56 AM
+  - listitem:
+    - 'link "Show HN: Interactive pinout for the Raspberry Pi Pico 2"':
+      - /url: https://pico2.pinout.xyz
+    - text: by gadgetoid | 7/7/2025, 9:01:13 AM
+  - listitem:
+    - link "Series of posts on HTTP status codes (2018)":
+      - /url: https://evertpot.com/http/
+    - text: by antonalekseev | 7/9/2025, 12:05:17 AM
+```
